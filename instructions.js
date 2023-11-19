@@ -16,18 +16,51 @@ heading.textContent='Java script'
 let paragraph = document.querySelector('.paragraph')
 paragraph.textContent='This is a language I have mastered and I am proud of myself. I complished this because I believed in myself'
 // 3. Use the h3 element and change the heading(Subheading) to 'Things I've accomplished so far'. Hint: use querySelector
-
+document.querySelector('#subheading').textContent = "Things I've accomplished so far";
 // 4. Change the paragraph below Question3(above) to 'I have discovered that I can accomplish anything I put my mind to'Hint: Use querySelectorAll and index or use getElementByTagName and index
+// Using querySelectorAll
+document.querySelectorAll('.paragraph')[0].textContent = "I have discovered that I can accomplish anything I put my mind to";
 
 // So far you have hints, however the hints have lessened.
 // 5.1. Attach the first input to a variable
+let firstMultiplyInput = document.querySelector('[data-firstMultiply]');
+
 // 5.2. Attach the second input to a variable
+let secondMultiplyInput = document.querySelector('[data-secondMultiply]');
+
 // 5.3. Attach the FIRST button to a variable(going to add an eventListener to button)
+// Attach the first button to a variable
+let calculateButton1 = document.querySelector('[data-calculate1]');
+calculateButton1.addEventListener('click', function() {
+    console.log('Button 1 clicked!')});
 // 5.4. Attach the FIRST span element to a variable(To display the information to)
-//         P.S. for the next step make use of console.log() to keep track of where data is going  
+//         P.S. for the next step make use of console.log() to keep track of where data is going
+// Attach the first span element to a variable
+let firstSpanElement = document.querySelector('[data-first]');
+console.log('Content of the first span:', firstSpanElement.textContent);
+
 // 5.5. Create a normal function that allows us to multiply the 2 inputs together and writes the information to the FIRST span element.
+// Function to multiply two inputs and write to the first span element
+function multiplyAndDisplayResult() {
+    let firstInput = document.querySelector('[data-firstMultiply]');
+    let secondInput = document.querySelector('[data-secondMultiply]');
+    let firstSpanElement = document.querySelector('[data-first]');
+    let firstValue = parseFloat(firstInput.value); 
+    let secondValue = parseFloat(secondInput.value);
+    if (!isNaN(firstValue) && !isNaN(secondValue)) {
+        var result = firstValue * secondValue;
+        firstSpanElement.textContent = result;
+        console.log('Result of multiplication:', result);
+    } else {
+        console.error('Invalid input values');
+    }
+}
+
 // 5.6. Add an event listener to the button that runs the function that tyou created
+
+calculateButton1.addEventListener('click', multiplyAndDisplayResult);
 // 5.7 Hmm......Did you forget to make your input tags return a value instead of the element? (0.0)
+
 //     Or did you forget we are writing to an element not an input?....which means your answer will be displayed with innerText
 
 // Okay, that was pretty awesome...not too bad when you have the steps?
